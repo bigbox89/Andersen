@@ -6,7 +6,7 @@ public interface MyArrayList<T> {
 
     boolean add(int index);
 
-    T get(int ndex);
+    T get(int index);
 
     T get (T t);
 
@@ -16,7 +16,7 @@ public interface MyArrayList<T> {
 
     void remove(T t);
 
-    int sixe();
+    int size();
 
     void sort(Comparable <T> T);
 }
