@@ -5,6 +5,8 @@ public interface MyArrayList<T> {
 
     boolean add(int index);
 
+    void addElement(T t);
+
     T get(int index); // реализован
 
     T get (T t); // реализован

@@ -4,6 +4,15 @@ public class Intern implements Comparable<Intern>{
     private String name, lastName;
     private int test1, test2;
 
+    //создаем студента из строки в текстовом файле
+    public Intern(String line) {
+        String[] userLine = line.split("\\|");
+        this.name = userLine[0];
+        this.lastName = userLine[1];
+        this.test1 = Integer.parseInt(userLine[2]);
+        this.test2 = Integer.parseInt(userLine[3]);
+    }
+
     public Intern(String name, String lastName, int test1, int test2) {
         this.name = name;
         this.lastName = lastName;
