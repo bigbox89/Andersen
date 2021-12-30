@@ -4,7 +4,8 @@ public class Main {
 
     public static void main(String[] args)
     {
-        System.out.println("Till tomorrow");
-        // write your code here
+        Intern first = new Intern("Гайниев","Эдуард",60,60);
+        Crew<Intern> lines  = new Crew<>();
+        lines.add(first);
     }
 }
