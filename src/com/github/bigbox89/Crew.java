@@ -75,6 +75,15 @@ public class Crew<T>  implements MyArrayList
     @Override
     public void remove(Object o) {
 
+      for (int i = 0; i < this.size; i++){
+          if (((Intern)this.get(i)).equals(o)){
+              this.remove(i);
+              this.size--;
+          }
+      }
+
+
+
     }
 
     @Override

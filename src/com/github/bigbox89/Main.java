@@ -17,5 +17,8 @@ public class Main {
         spisok.sort();
         spisok.printAll(spisok);
 
+        spisok.remove(bad);
+        spisok.printAll(spisok);
+
     }
 }
