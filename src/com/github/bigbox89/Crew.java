@@ -12,7 +12,7 @@ public class Crew<T>  implements MyArrayList
     }
 
     /**
-     * Добавляет нового интерна(студента) в конец списка
+     * Добавляет нового интерна(студента) в конец списка (Так как метод boolean, в случае переполнения элементов просто выводит false)
      * @param t добавляемый студент
      * @return
      */
@@ -65,9 +65,12 @@ public class Crew<T>  implements MyArrayList
     {
         if (index >= 0 && index < size)
         {
-
+            for (int i=index; i<size; ++i)
+            {
+                student[i] = student[i+1];          //с учетом что get[error] = null , последний станет null
+            }
         }
-        else System.out.println("Нет такого элемента, который вы хотели заменить");
+        else System.out.println("Нет такого элемента, который вы хотели удалить");
     }
 
     @Override
@@ -80,10 +83,27 @@ public class Crew<T>  implements MyArrayList
         return size;
     }
 
+    /**
+     * Пузырьковая сортировка
+     */
     @Override
-    public void sort(Comparable T) {
+    public void sort()
+    {
+        Crew[] sortedArrayList = new Crew[this.size];
+
+        for(int i = 0; i < this.size; ++i) {
+            for(int j = i + 1; j < this.size; ++j) {
+                if (((Intern)this.get(i)).getTest1() < ((Intern)this.get(j)).getTest1())
+                {
+                    Intern tempIntern = (Intern)this.get(i);
+                    this.set(i, this.get(j));
+                    this.set(j, tempIntern);
+                }
+            }
+        }
 
     }
+
 
     /**
      * Печать в консоль данных студента

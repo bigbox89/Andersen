@@ -1,9 +1,8 @@
 package com.github.bigbox89;
 
-public class Intern {
+public class Intern implements Comparable<Intern>{
     private String name, female;
     private int test1, test2;
-    private int size;
 
     public Intern(String name, String female, int test1, int test2) {
         this.name = name;
@@ -44,4 +43,10 @@ public class Intern {
         this.test2 = test2;
     }
 
+
+    @Override
+    public int compareTo(Intern o)
+    {
+        return this.test1 - o.test1;
+    }
 }
