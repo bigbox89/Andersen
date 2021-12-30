@@ -44,9 +44,4 @@ public class Intern {
         this.test2 = test2;
     }
 
-    public int sizeIntern()
-    {
-        return 5;
-    }
-
 }
