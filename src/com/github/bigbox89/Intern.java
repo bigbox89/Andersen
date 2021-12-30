@@ -1,4 +1,3 @@
-package com.github.bigbox89;
 
 public class Intern implements Comparable<Intern>{
     private String name, female;
@@ -47,6 +46,6 @@ public class Intern implements Comparable<Intern>{
     @Override
     public int compareTo(Intern o)
     {
-        return this.test1 - o.test1;
+        return this.test1 - o.test1 ;
     }
 }

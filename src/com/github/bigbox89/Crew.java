@@ -1,4 +1,3 @@
-package com.github.bigbox89;
 
 public class Crew<T>  implements MyArrayList
 {
@@ -93,7 +92,8 @@ public class Crew<T>  implements MyArrayList
 
         for(int i = 0; i < this.size; ++i) {
             for(int j = i + 1; j < this.size; ++j) {
-                if (((Intern)this.get(i)).getTest1() < ((Intern)this.get(j)).getTest1())
+
+                if (((Intern)this.get(i)).compareTo(((Intern)this.get(j))) < 0)
                 {
                     Intern tempIntern = (Intern)this.get(i);
                     this.set(i, this.get(j));
