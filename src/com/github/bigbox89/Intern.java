@@ -75,4 +75,14 @@ public class Intern implements Comparable<Intern>{
     {
         return ((this.test1 + this.test2) - (o.test1+o.test2)) ;
     }
+
+
+
+    @Override
+    public String toString() {
+        return
+                this.name.toString()+"  "+
+                this.lastName.toString()+" | "+
+                this.test1+" | "+this.test2;
+    }
 }

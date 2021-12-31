@@ -159,5 +159,18 @@ public class Crew<T> implements MyArrayList {
         }
     }
 
+    /**
+     * Печатает в списке капитанов (у кого второй тест >= 60)
+     * @return
+     */
+    public void isCapitan()
+    {
+        int porog=60;
+        for (int i = 0; i < this.size; ++i)
+        {
+            if (((Intern)this.get(i)).getTest1()>=porog) System.out.println(this.get(i));
+        }
+    }
+
 
 }

@@ -8,7 +8,7 @@ public class InternsRepository {
 
     //Метод для считывания списка пользователей из файла
     private Crew<Intern> getInternsFromFile() throws FileNotFoundException {
-        String inputFileName = "C:/interns.txt";
+        String inputFileName = "C:/interns2.txt";
         Crew<Intern> internsList = new Crew<Intern>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFileName))) {

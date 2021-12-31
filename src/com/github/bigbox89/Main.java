@@ -1,7 +1,5 @@
 package com.github.bigbox89;
 import java.io.FileNotFoundException;
-//TODO протестировать метод Remove (Object o)
-//TODO в класс Intern добавить метод .toString
 
 public class Main {
 
@@ -19,12 +17,16 @@ public class Main {
 
         spisok.printAll(spisok);
         System.out.println("--------------------");
-        spisok.remove(bad);
+        /*spisok.remove(bad);
         spisok.remove(second);
         spisok.printAll(spisok);
         System.out.println("--------------------");
         spisok.sort();
         spisok.printAll(spisok);
+
+        System.out.println(spisok.get(2).toString());
+         */
+        spisok.isCapitan();
 
     }
 }
