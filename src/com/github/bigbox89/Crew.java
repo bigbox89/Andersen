@@ -1,3 +1,4 @@
+package com.github.bigbox89;
 
 public class Crew<T> implements MyArrayList {
     private static final int DEFAULT_SIZE = 3;
@@ -86,23 +87,36 @@ public class Crew<T> implements MyArrayList {
 
     @Override
     public void remove(int index) {
-        if (index >= 0 && index < size) {
-            for (int i = index; i < size; ++i) {
-                student[i] = student[i + 1];          //с учетом что get[error] = null , последний станет null
-            }
-        } else System.out.println("Нет такого элемента, который вы хотели удалить");
+        rangeCheck(index);
+        int numMoved=size-index-1;
+        if(numMoved > 0){
+            System.arraycopy(student, index+1,student , index, numMoved);
+        }
+       student[--size]=null;
 
     }
+
+    public void rangeCheck(int index) {
+        if(index < 0 || index >= size){
+            try {
+                throw new Exception();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     @Override
     public void remove(Object o) {
-        for (int i = 0; i < this.size; i++) {
-
-            if (o.equals(this.get(i)))
+        for(int i = 0; i < size; i++)
+        {
+            if(((Intern)get(i)).equals((Intern)o)){
                 remove(i);
+            }
         }
-        this.size = size - 1;
     }
+
 
     @Override
     public int size() {

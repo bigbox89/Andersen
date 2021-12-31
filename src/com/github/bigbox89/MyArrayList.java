@@ -1,4 +1,4 @@
-
+package com.github.bigbox89;
 public interface MyArrayList<T> {
 
     boolean add (T t); // реализован

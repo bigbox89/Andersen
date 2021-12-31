@@ -1,3 +1,4 @@
+package com.github.bigbox89;
 import java.util.Objects;
 
 public class Intern implements Comparable<Intern>{
@@ -56,11 +57,12 @@ public class Intern implements Comparable<Intern>{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Intern intern = (Intern) o;
-        return test1 == intern.test1 &&
-                test2 == intern.test2 &&
-                Objects.equals(name, intern.name) &&
-                Objects.equals(lastName, intern.lastName);
+        return ((this.test1 == intern.test1) &&
+                (this.test2 == intern.test2) &&
+                (Objects.equals(this.name, intern.name)) &&
+                Objects.equals(this.lastName, intern.lastName));
     }
 
     @Override
@@ -71,6 +73,6 @@ public class Intern implements Comparable<Intern>{
     @Override
     public int compareTo(Intern o)
     {
-        return this.test1 - o.test1 ;
+        return ((this.test1 + this.test2) - (o.test1+o.test2)) ;
     }
 }
