@@ -26,12 +26,10 @@ public class Crew<T> implements MyArrayList {
             return false;
     }
 
-
-    @Override
-    public boolean add(int index) {
-        return false;
-    }
-
+    /**
+     * Метод добавляет обьект в массив
+     * @Return
+     */
     @Override
     public void addElement(Object t) {
         // если массив уже заполнен
@@ -41,9 +39,12 @@ public class Crew<T> implements MyArrayList {
 
         this.student[size] = (T) t;
         size++;
-
     }
 
+    /**
+     * Метод меняет размер массива
+     * @Return
+     */
     private void resize() {
         // запоминаем старый массив
         T[] oldElements = this.student;
@@ -55,10 +56,13 @@ public class Crew<T> implements MyArrayList {
         }
     }
 
+    /**
+     * Метод проверяет массив на заполненность
+     * @Return
+     */
     private boolean isFullArray() {
         return size == student.length;
     }
-
 
     /**
      * Получить студента по индексу
@@ -73,11 +77,19 @@ public class Crew<T> implements MyArrayList {
         } else return null;
     }
 
+    /**
+     * Метод получает обьект из массива
+     * @Return
+     */
     @Override
     public T get(Object o) {
         return (T) o;
     }
 
+    /**
+     * Метод заменяет обьект в массиве по индексу
+     * @Return
+     */
     @Override
     public void set(int index, Object o) {
         if (index >= 0 && index < size) {
@@ -85,19 +97,27 @@ public class Crew<T> implements MyArrayList {
         } else System.out.println("Нет такого элемента, который вы хотели заменить");
     }
 
+    /**
+     * Метод удаляет обьект из массива по индексу
+     * @Return
+     */
     @Override
     public void remove(int index) {
         rangeCheck(index);
-        int numMoved=size-index-1;
-        if(numMoved > 0){
-            System.arraycopy(student, index+1,student , index, numMoved);
+        int numMoved = size - index - 1;
+        if (numMoved > 0) {
+            System.arraycopy(student, index + 1, student, index, numMoved);
         }
-       student[--size]=null;
+        student[--size] = null;
 
     }
 
+    /**
+     * Метод проверяет выход за размеры массива
+     * @Return
+     */
     public void rangeCheck(int index) {
-        if(index < 0 || index >= size){
+        if (index < 0 || index >= size) {
             try {
                 throw new Exception();
             } catch (Exception e) {
@@ -106,18 +126,23 @@ public class Crew<T> implements MyArrayList {
         }
     }
 
-
+    /**
+     * Метод удаляет обьект из массива по обьекту
+     * @Return
+     */
     @Override
     public void remove(Object o) {
-        for(int i = 0; i < size; i++)
-        {
-            if(((Intern)get(i)).equals((Intern)o)){
+        for (int i = 0; i < size; i++) {
+            if (((Intern) get(i)).equals((Intern) o)) {
                 remove(i);
             }
         }
     }
 
-
+    /**
+     * Метод возвращает размер массива
+     * @Return size
+     */
     @Override
     public int size() {
         return size;
@@ -128,8 +153,6 @@ public class Crew<T> implements MyArrayList {
      */
     @Override
     public void sort() {
-        Crew[] sortedArrayList = new Crew[this.size];
-
         for (int i = 0; i < this.size; ++i) {
             for (int j = i + 1; j < this.size; ++j) {
 
@@ -140,9 +163,7 @@ public class Crew<T> implements MyArrayList {
                 }
             }
         }
-
     }
-
 
     /**
      * Печать в консоль данных студента
@@ -153,22 +174,26 @@ public class Crew<T> implements MyArrayList {
         System.out.println(student.getName() + " " + student.getFemale() + " | " + student.getTest1() + " | " + student.getTest2());
     }
 
-    public void printAll(Crew team) {
-        for (int i = 0; i < team.size; ++i) {
-            print((Intern) team.get(i));
+    /**
+     * Печать в консоль списка студентов
+     * @return
+     */
+
+    public void printAll() {
+        for (int i = 0; i < size; ++i) {
+            print((Intern) this.get(i));
         }
     }
 
     /**
      * Печатает в списке капитанов (у кого второй тест >= 60)
+     *
      * @return
      */
-    public void isCapitan()
-    {
-        int porog=60;
-        for (int i = 0; i < this.size; ++i)
-        {
-            if (((Intern)this.get(i)).getTest1()>=porog) System.out.println(this.get(i));
+    public void isCapitan() {
+        int porog = 60;
+        for (int i = 0; i < this.size; ++i) {
+            if (((Intern) this.get(i)).getTest1() >= porog) System.out.println(this.get(i));
         }
     }
 

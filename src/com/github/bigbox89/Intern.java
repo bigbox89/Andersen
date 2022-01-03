@@ -1,7 +1,8 @@
 package com.github.bigbox89;
+
 import java.util.Objects;
 
-public class Intern implements Comparable<Intern>{
+public class Intern implements Comparable<Intern> {
     private String name, lastName;
     private int test1, test2;
 
@@ -71,18 +72,15 @@ public class Intern implements Comparable<Intern>{
     }
 
     @Override
-    public int compareTo(Intern o)
-    {
-        return ((this.test1 + this.test2) - (o.test1+o.test2)) ;
+    public int compareTo(Intern o) {
+        return ((this.test1 + this.test2) - (o.test1 + o.test2));
     }
-
-
 
     @Override
     public String toString() {
         return
-                this.name.toString()+"  "+
-                this.lastName.toString()+" | "+
-                this.test1+" | "+this.test2;
+                this.name.toString() + "  " +
+                        this.lastName.toString() + " | " +
+                        this.test1 + " | " + this.test2;
     }
 }

@@ -1,14 +1,13 @@
 package com.github.bigbox89;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
 
 public class InternsRepository {
 
     //Метод для считывания списка пользователей из файла
     private Crew<Intern> getInternsFromFile() throws FileNotFoundException {
-        String inputFileName = "C:/interns2.txt";
+        String inputFileName = "interns2.txt";
+
         Crew<Intern> internsList = new Crew<Intern>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFileName))) {
