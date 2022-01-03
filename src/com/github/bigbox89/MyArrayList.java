@@ -4,7 +4,7 @@ public interface MyArrayList<T> {
 
     boolean add(T t); // реализован
 
-    void addElement(T t); // реализован
+    boolean add(int index); // реализован
 
     T get(int index); // реализован
 
@@ -14,7 +14,7 @@ public interface MyArrayList<T> {
 
     void remove(int index); //реализован
 
-    void remove(T t); // реализован
+    void remove(T t);
 
     int size(); // реализован
 

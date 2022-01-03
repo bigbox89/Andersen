@@ -13,7 +13,7 @@ public class InternsRepository {
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFileName))) {
             reader.lines().forEach(line -> {
                 Intern internFromTxt = new Intern(line);
-                internsList.addElement(internFromTxt);
+                internsList.add(internFromTxt);
             });
         } catch (IOException e) {
             e.printStackTrace();

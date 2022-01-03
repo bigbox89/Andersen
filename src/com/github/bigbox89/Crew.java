@@ -1,7 +1,7 @@
 package com.github.bigbox89;
 
 public class Crew<T> implements MyArrayList {
-    private static final int DEFAULT_SIZE = 3;
+    private static final int DEFAULT_SIZE = 10;
     private T[] student;
     private int size;
 
@@ -11,38 +11,49 @@ public class Crew<T> implements MyArrayList {
     }
 
     /**
-     * Добавляет нового интерна(студента) в конец списка (Так как метод boolean, в случае переполнения элементов просто выводит false)
+     * Добавляет нового интерна(студента) в конец списка (В случае успешного добавления выводит true иначе false)
      *
      * @param t добавляемый студент
      * @return
      */
     @Override
     public boolean add(Object t) {
-        if (size < student.length) {
+        try {
+            // если массив уже заполнен
+            if (isFullArray()) {
+                resize();
+            }
             this.student[size] = (T) t;
             size++;
             return true;
-        } else
+        } catch (Exception e) {
             return false;
+        }
     }
 
     /**
-     * Метод добавляет обьект в массив
-     * @Return
+     * Увеличивает размер массива до величины index (В случае успешного добавления выводит true иначе false)
+     *
+     * @param index размер массива
+     * @return
      */
-    @Override
-    public void addElement(Object t) {
-        // если массив уже заполнен
-        if (isFullArray()) {
-            resize();
-        }
 
-        this.student[size] = (T) t;
-        size++;
+    @Override
+    public boolean add(int index) {
+        try {
+            // если размер больше index то не увеличиваем
+            if (size > index) return false;
+            else
+                this.size = index;
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     /**
      * Метод меняет размер массива
+     *
      * @Return
      */
     private void resize() {
@@ -58,6 +69,7 @@ public class Crew<T> implements MyArrayList {
 
     /**
      * Метод проверяет массив на заполненность
+     *
      * @Return
      */
     private boolean isFullArray() {
@@ -74,20 +86,28 @@ public class Crew<T> implements MyArrayList {
     public T get(int index) {
         if (index >= 0 && index < size) {
             return student[index];
-        } else return null;
+        }
+        return null;
     }
 
     /**
      * Метод получает обьект из массива
+     *
      * @Return
      */
     @Override
     public T get(Object o) {
-        return (T) o;
+        for (T t : student
+        ) {
+            if (t.equals(o))
+                return t;
+        }
+        return null;
     }
 
     /**
      * Метод заменяет обьект в массиве по индексу
+     *
      * @Return
      */
     @Override
@@ -99,6 +119,7 @@ public class Crew<T> implements MyArrayList {
 
     /**
      * Метод удаляет обьект из массива по индексу
+     *
      * @Return
      */
     @Override
@@ -114,6 +135,7 @@ public class Crew<T> implements MyArrayList {
 
     /**
      * Метод проверяет выход за размеры массива
+     *
      * @Return
      */
     public void rangeCheck(int index) {
@@ -128,6 +150,7 @@ public class Crew<T> implements MyArrayList {
 
     /**
      * Метод удаляет обьект из массива по обьекту
+     *
      * @Return
      */
     @Override
@@ -141,6 +164,7 @@ public class Crew<T> implements MyArrayList {
 
     /**
      * Метод возвращает размер массива
+     *
      * @Return size
      */
     @Override
@@ -155,7 +179,6 @@ public class Crew<T> implements MyArrayList {
     public void sort() {
         for (int i = 0; i < this.size; ++i) {
             for (int j = i + 1; j < this.size; ++j) {
-
                 if (((Intern) this.get(i)).compareTo(((Intern) this.get(j))) < 0) {
                     Intern tempIntern = (Intern) this.get(i);
                     this.set(i, this.get(j));
@@ -168,20 +191,21 @@ public class Crew<T> implements MyArrayList {
     /**
      * Печать в консоль данных студента
      *
-     * @param student - печатаемый студент
+     * @param t - печатаемый студент
      */
-    public void print(Intern student) {
-        System.out.println(student.getName() + " " + student.getFemale() + " | " + student.getTest1() + " | " + student.getTest2());
+    public void print(T t) {
+        System.out.println(t.toString());
     }
 
     /**
      * Печать в консоль списка студентов
+     *
      * @return
      */
 
     public void printAll() {
         for (int i = 0; i < size; ++i) {
-            print((Intern) this.get(i));
+            print((T) this.get(i));
         }
     }
 
@@ -196,6 +220,4 @@ public class Crew<T> implements MyArrayList {
             if (((Intern) this.get(i)).getTest1() >= porog) System.out.println(this.get(i));
         }
     }
-
-
 }

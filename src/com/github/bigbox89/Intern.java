@@ -26,7 +26,7 @@ public class Intern implements Comparable<Intern> {
         return name;
     }
 
-    public String getFemale() {
+    public String getLastName() {
         return lastName;
     }
 
@@ -42,8 +42,8 @@ public class Intern implements Comparable<Intern> {
         this.name = name;
     }
 
-    public void setFemale(String female) {
-        this.lastName = female;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setTest1(int test1) {
@@ -79,8 +79,7 @@ public class Intern implements Comparable<Intern> {
     @Override
     public String toString() {
         return
-                this.name.toString() + "  " +
-                        this.lastName.toString() + " | " +
-                        this.test1 + " | " + this.test2;
+                this.getName() + " " + this.getLastName() + " | " + this.getTest1() + " | " + this.getTest2();
+
     }
 }
