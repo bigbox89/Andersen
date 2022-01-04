@@ -80,6 +80,5 @@ public class Intern implements Comparable<Intern> {
     public String toString() {
         return
                 this.getName() + " " + this.getLastName() + " | " + this.getTest1() + " | " + this.getTest2();
-
     }
 }

@@ -156,7 +156,7 @@ public class Crew<T> implements MyArrayList {
     @Override
     public void remove(Object o) {
         for (int i = 0; i < size; i++) {
-            if (((Intern) get(i)).equals((Intern) o)) {
+            if (((T) get(i)).equals((T) o)) {
                 remove(i);
             }
         }
@@ -179,11 +179,12 @@ public class Crew<T> implements MyArrayList {
     public void sort() {
         for (int i = 0; i < this.size; ++i) {
             for (int j = i + 1; j < this.size; ++j) {
-                if (((Intern) this.get(i)).compareTo(((Intern) this.get(j))) < 0) {
-                    Intern tempIntern = (Intern) this.get(i);
+                if (((Comparable) this.get(i)).compareTo(((Comparable) this.get(j))) < 0) {
+                    Comparable tempData = (Comparable) this.get(i);
                     this.set(i, this.get(j));
-                    this.set(j, tempIntern);
+                    this.set(j, tempData);
                 }
+
             }
         }
     }
@@ -215,9 +216,10 @@ public class Crew<T> implements MyArrayList {
      * @return
      */
     public void isCapitan() {
+
         int porog = 60;
         for (int i = 0; i < this.size; ++i) {
-            if (((Intern) this.get(i)).getTest1() >= porog) System.out.println(this.get(i));
+                if (((Intern) this.get(i)).getTest1() >= porog) System.out.println(this.get(i));
         }
     }
 }

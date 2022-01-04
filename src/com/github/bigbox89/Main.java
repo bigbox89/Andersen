@@ -11,7 +11,7 @@ public class Main {
         Crew<Intern> spisok = internsRepository.getAllInterns();
         System.out.println("Печатаем весь список");
         spisok.printAll();
-        System.out.println("Удаляем элемент из массива по обьекту");
+        System.out.println("Удаляем элемент из массива по обьекту " + internForRemove.toString());
         spisok.remove(internForRemove);
         System.out.println("Печатаем весь список");
         spisok.printAll();
