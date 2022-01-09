@@ -222,4 +222,14 @@ public class Crew<T> implements MyArrayList {
                 if (((Intern) this.get(i)).getTest1() >= porog) System.out.println(this.get(i));
         }
     }
+
+
+    /**
+     * Метод очищает список
+     *
+     * @return
+     */
+    public void clean(){
+        size = 0;
+    }
 }
